@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Resources:
+  DemoBucket:
+    Type: 'AWS::S3::Bucket'
+
+Outputs:
+
+  S3BucketSecureURL:
+    Value: !Join
+      - ''
+      - - 'https://'
+        - !GetAtt
+          - DemoBucket
+          - DomainName
+    Description: S3 bucket secure URL
+
+  BucketName:
+    Value: !Ref DemoBucket
+    Description: Bucket name
+    Export:
+      Name: !Sub "BucketName-${AWS::StackName}"

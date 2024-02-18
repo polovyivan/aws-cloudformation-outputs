@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Resources:
+  DemoBucket2:
+    Type: 'AWS::S3::Bucket'
+
+Outputs:
+
+  BucketName2:
+    Value: !Ref DemoBucket2
+    Description: Bucket name
+
+  BucketName1:
+    Value: !ImportValue BucketName-OutputsDemo
+    Description: Bucket name from first stack
